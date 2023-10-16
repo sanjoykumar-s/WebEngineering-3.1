@@ -17,18 +17,43 @@ class Book {
         $this->author = $author;
         $this->available = $available;
     }
-
-    public function getIsbn() : string {
-        return $this->isbn;
+    public function __get($name) {
+        if($name == 'title') {
+            return $this->title;
+        }
+        elseif($name == 'author') {
+            return $this->author;
+        }
+        elseif($name == 'isbn') {
+            return $this->isbn;
+        }
+        elseif($name == 'availableCopy') {
+            return $this->available;
+        }
     }
-    public function getTitle() : string {
-        return $this->title;
-    }
-    public function getAuthor() : string {
-        return $this->author;
+    public function __set($name, $value) {
+        if($name == 'available') {
+            $this->available = $value;
+        }
+        elseif($name == 'title') {
+            $this->title = $value;
+        }
+        elseif($name == 'author') {
+            $this->author = $value;
+        }
+        elseif($name == 'isbn') {
+            $this->isbn = $value;
+        }
+        elseif($name == 'availableCopy') {
+            $this->available = $value;
+        }
     }
     public function isAvailable() : bool {
-        return $this->available;
+        if(!$this->available) {
+            return false;
+        } else {
+            return true;
+        }
     }
     public function getPrintableTitle() : string {
         $result = '<i>' . $this->title . '</i> - ' . $this->author;
@@ -36,9 +61,6 @@ class Book {
             $result .= '<b> Not available</b>';
         }
         return $result;
-    }
-    public function availableCopy() : int {
-        return $this->available;
     }
     public function getCopy() : bool {
         if($this->available < 1) {

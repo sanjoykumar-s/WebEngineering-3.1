@@ -16,23 +16,33 @@
             $this->lastName = $lastName;
             $this->email = $email;
         }
-
-        public function getId() : id {
-            return $this->id;
+        public function __get($name) {
+            if($name == 'id') {
+                return $this->id;
+            }
+            elseif($name == 'firstName') {
+                return $this->firstName;
+            }
+            elseif($name == 'lastName') {
+                return $this->lastName;
+            }
+            elseif($name == 'email') {
+                return $this->email;
+            }
         }
-        public function getFirstName() : string {
-            return $this->firstName;
-        }
-
-        public function getLastName() : string {
-            return $this->lastName;
-        }
-
-        public function getEmail() : string {
-            return $this->email;
-        }
-        public  function setEmail(string $email) : void {
-            $this->email = $email;
+        public function __set($name, $value) {
+            if($name == 'id') {
+                $this->id = $value;
+            }
+            elseif($name == 'firstName') {
+                $this->firstName = $value;
+            }
+            elseif($name == 'lastName') {
+                $this->lastName = $value;
+            }
+            elseif($name == 'email') {
+                $this->email = $value;
+            }
         }
 
     }
