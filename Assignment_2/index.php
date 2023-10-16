@@ -38,16 +38,16 @@ $customer2 = new  Customer(
 
 echo "<b>BOOK</b></br>";
 // isAvailable
-echo "Book-1 is available? " . $book1->isAvailable() . "</br>";
+echo "Book-1 is available? " . $book1->__call("isAvailable","") . "</br>";
 // getPrintableTitle
-echo "Book-1 Title: " . $book1->getPrintableTitle() . "</br>";
+echo "Book-1 Title: " . $book1->__call("getPrintableTitle","") . "</br>";
 
 echo "</br>";
 
 // addCopy
-echo "Book-3 Title:  " . $book3->getPrintableTitle() . "</br>";
+echo "Book-1 Title: " . $book1->__call("getPrintableTitle","") . "</br>";
 echo "Book-3 availableCopy: " . $book3->__get("availableCopy") . "</br>"; 
-$book3->addCopy(2); // add A copy of Book-3
+$book3->__call("addCopy","2"); // add A copy of Book-3
 echo "Book-3 availableCopy after adding 2 copy: " . $book3->__get("availableCopy") . "</br>";
 
 echo "</br>";

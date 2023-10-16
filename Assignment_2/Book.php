@@ -48,32 +48,35 @@ class Book {
             $this->available = $value;
         }
     }
-    public function isAvailable() : bool {
-        if(!$this->available) {
-            return false;
-        } else {
+    public function __call($method, $args) {
+        if($method == 'getCopy') {
+            if($this->available < 1) {
+                return false;
+            } else {
+                $this->available--;
+                return true;
+            }
+        }
+        elseif($method == 'addCopy') {
+            $this->available = $this->available + $args[0];
             return true;
         }
-    }
-    public function getPrintableTitle() : string {
-        $result = '<i>' . $this->title . '</i> - ' . $this->author;
-        if(!$this->available) {
-            $result .= '<b> Not available</b>';
+        elseif($method == 'isAvailable') {
+            if($this->available < 1) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return $result;
-    }
-    public function getCopy() : bool {
-        if($this->available < 1) {
-            return false;
-        } else {
-            $this->available--;
-            return true;
+        elseif($method == 'getPrintableTitle') {
+            $result = '<i>' . $this->title . '</i> - ' . $this->author;
+            if(!$this->available) {
+                $result .= '<b> Not available</b>';
+            }
+            return $result;
         }
     }
-    public function addCopy(int $num) : bool {
-        $this->available = $this->available + $num;
-        return true;
-    }
+
 }
 
 ?>
