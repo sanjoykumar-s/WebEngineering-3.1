@@ -16,6 +16,10 @@
             $this->lastName = $lastName;
             $this->email = $email;
         }
+
+        public function __toString() {
+            return "Id: {$this->id},  First Name: {$this->firstName}, Last Name: {$this->lastName}, Email: {$this->email}";
+        }
         public function __get($name) {
             if($name == 'id') {
                 return $this->id;

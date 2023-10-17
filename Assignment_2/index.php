@@ -37,6 +37,7 @@ $customer2 = new  Customer(
 );
 
 echo "<b>BOOK</b></br>";
+echo "Book-2 information : " . $book2 . "</br>";
 // isAvailable
 echo "Book-1 is available? " . $book1->isAvailable() . "</br>";
 // getPrintableTitle
@@ -61,6 +62,7 @@ echo "Book-1 Isbn: <b>" . $book1->isbn . "</b></br>";
 
 //Customer INFO.
 echo "</br> <b>CUSTOMER</b> </br>";
+echo "Customer-2 info: " . $customer2 . "</br>";
 echo "Customer-1 Id: <b>" . $customer1->id . "</b></br>";
 echo "Customer-1 First Name: <b>" . $customer1->firstName . "</b></br>";
 echo "Customer-1 Last Name: <b>" . $customer1->lastName . "</b></br>";

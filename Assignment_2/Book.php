@@ -17,6 +17,10 @@ class Book {
         $this->author = $author;
         $this->available = $available;
     }
+
+    public function __toString() {
+        return "Title: {$this->title},  Author: {$this->author}, ISBN: {$this->isbn}, Available: {$this->available}";
+    }
     public function __get($name) {
         if($name == 'title') {
             return $this->title;
