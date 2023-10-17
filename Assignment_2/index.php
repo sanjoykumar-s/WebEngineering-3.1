@@ -66,6 +66,6 @@ echo "Customer-1 First Name: <b>" . $customer1->__get("firstName") . "</b></br>"
 echo "Customer-1 Last Name: <b>" . $customer1->__get("lastName") . "</b></br>";
 echo "Customer-1 Email: <b>" . $customer1->__get("email") . "</b></br>";
 $customer1->__set("email","adrit@gmail.com");
-echo "Customer-1 Email: <b>" . $customer1->__get("email") . "</b></br>";
+echo "Customer-1 Email after update: <b>" . $customer1->__get("email") . "</b></br>";
 
 ?>
